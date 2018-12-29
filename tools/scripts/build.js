@@ -18,7 +18,11 @@ exec('npx rollup -c rollup-min.config.js', nodeEnv)
 exec('npx rollup -c rollup.config.js', nodeEnv)
 
 function fileGZipSize(path) {
-  return pipe(readFileSync, gzipSize.sync, prettyBytes)(path)
+  return pipe(
+    readFileSync,
+    gzipSize.sync,
+    prettyBytes,
+  )(path)
 }
 
 console.log(
